@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="Province">Province:</label>
+    <select name="" id="Province">
+        <option value="Bangkok">Bangkok</option>
+        <option value="Loei">Loei</option>
+
+
+    </select>
+    <label for="District"> District:</label>
+    <select name="" id="District">
+        <!-- <option value="Bangna">Bangna</option>
+        <option value="Yannawa">Yannawa</option>
+        <option value="Muang">Muang</option>
+        <option value="Wangsaphung">Wangsaphung</option> -->
+    </select>
+
+    <script>
+        const selectProvince = document.getElementById('Province');
+const selectDistrict = document.getElementById('District');
+
+const districts = {
+    Bangkok: ['Bangna', 'Yannawa', 'Chatuchak'],
+    Loei: ['Muang', 'Wangsaphung', 'Chiangkhan'],
+    // แหล่งเก็บจังหวัดและอำเภอ สามารถเพิ่มได้อีกในอนาคต
+};
+
+function showDistrict() {
+    const selectedProvince = selectProvince.value;
+    const districtArray = districts[selectedProvince];
+
+    
+    selectDistrict.innerHTML = "";
+
+    
+    districtArray.forEach(function(district) {
+        const option = document.createElement("option");
+        option.innerHTML = district;
+        option.value = district;
+        selectDistrict.append(option);
+    });
+}
+
+// เมื่อมีการเลือกจังหวัด
+selectProvince.addEventListener('change', showDistrict);
+
+    </script>
+
+
+    
+</body>
+</html>

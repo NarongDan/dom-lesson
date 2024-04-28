@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cross {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="add">Add</button>
+    <ul id="todoList"></ul>
+    
+    <script>
+      const task = document.getElementsByTagName("span");
+      const editBtn = document.getElementsByClassName("edit");
+      const delBtn = document.getElementsByClassName("del");
+      const addBtn = document.getElementById("add");
+      const todoList = document.getElementById("todoList");
+  
+      let count = 0;
+
+      const delTask = (e) => {
+        e.target.parentElement.outerHTML = "";
+        count--;
+      };
+      const editTask = (e) => {
+        let newText = prompt("Enter new task");
+        if (newText.trim() !== "") {
+        e.target.previousElementSibling.innerHTML = newText;}
+      };
+      const textCross = (e) => {
+        e.target.classList.toggle("cross");
+      };
+      const addTask = () => {
+        let list = document.createElement("li");
+        list.innerHTML = `<span>Task ${count}</span>
+            <button class="edit">Edit</button>
+            <button class="del">Del</button>`;
+        list.id = count;
+        todoList.append(list);
+
+        task[count].addEventListener("click", textCross);
+        editBtn[count].addEventListener("click", editTask);
+        delBtn[count].addEventListener("click", delTask);
+        count++;
+      };
+
+      addBtn.addEventListener("click", addTask);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+   
+
+</head>
+<body>
+    <button>hide</button>
+    <h1>Text</h1>
+
+<script>
+
+  const button = document.querySelector('button');
+const text = document.querySelector('h1');
+let isClicked = false;
+
+function hideAndChange() {
+    if (isClicked) {
+       
+        button.innerText = "Show";
+       
+        text.style.display = "none";
+    } else {
+     
+        button.innerText = "Hide";
+       
+        text.style.display = "block";
+    }
+  
+    isClicked = !isClicked;
+}
+
+button.addEventListener('click', hideAndChange)
+
+</script>
+
+
+</body>
+</html>

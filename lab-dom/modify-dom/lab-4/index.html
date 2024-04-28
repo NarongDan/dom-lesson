@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            background-color: green;
+        }
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">submit</button>
+
+    <script>
+        const btn = document.querySelector('.btn');
+
+        setTimeout(() => {
+            btn.classList.toggle("active");
+        }, 3000);
+        setTimeout(() => {
+            btn.classList.toggle("active");
+        }, 6000);
+        
+    </script>
+</body>
+</html>

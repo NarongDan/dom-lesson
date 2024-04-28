@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        p {
+            color: red;
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Phone Number">
+    <button>Click</button>
+    <p>Phone number is required</p>
+
+    <script>
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+        const p = document.querySelector('p')
+
+        button.addEventListener('click', () => {
+            if (input.value.trim() === "" ) {
+                input.style.borderColor = 'red'
+                p.style.display = 'block'
+            } else if (input.value.length !== 10) {
+                input.style.borderColor = 'red'
+                p.innerText = "Invalid length"
+                p.style.display = 'block'
+
+            } else if (isNaN(input.value)) {
+                input.style.borderColor = 'red'
+                p.innerText = "Phone Number is invalid"
+                p.style.display = 'block'
+            }
+            
+            else alert("Your number is valid")
+        })
+
+        input.addEventListener('input', (e) => {
+            if (isNaN(e.target.value)) {
+                input.style.borderColor = 'red'
+                p.innerText = "Phone Number is invalid"
+                p.style.display = 'block'
+                
+            
+            } 
+           
+        })
+
+    </script>
+
+
+
+</body>
+</html>

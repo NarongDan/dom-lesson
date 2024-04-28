@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script>
+        let ul = document.createElement('ul');
+        let text = prompt("Enter text here");
+        
+        while (!(text === null || text.trim() === "")) {
+            const li = document.createElement('li');
+            li.textContent = text;
+            ul.append(li);
+            text = prompt("Enter text here");
+            
+        }
+        document.getElementById('root').append(ul);
+
+     ;
+            
+        
+    </script>
+</body>
+</html>
